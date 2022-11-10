@@ -12,3 +12,7 @@ export const addToLog = (message: string) => {
     return e.slice(0, 20);
   });
 };
+
+export const clearLogState = () => {
+  logState.set(() => []);
+};

@@ -7,11 +7,6 @@ import { addToLog } from "./logState";
 
 /* global document, Word, Office, OfficeExtension, require,  console, module*/
 
-export async function selectionChanged(event: Office.DocumentSelectionChangedEventArgs) {
-  console.log("selection changed", event);
-  addToLog(`selection changed @ ${new Date().toISOString()}`);
-}
-
 const render = (Component: React.FC) => {
   ReactDOM.render(
     <AppContainer>
@@ -22,6 +17,12 @@ const render = (Component: React.FC) => {
     document.getElementById("container")
   );
 };
+
+const now = () => new Date().toISOString().replace(/^.*?T/, "").replace(/\..*/, "");
+
+export async function selectionChanged(_event: Office.DocumentSelectionChangedEventArgs) {
+  addToLog(`${now()}: selection changed`);
+}
 
 Office.onReady(() => {
   OfficeExtension.config.extendedErrorLogging = true;
