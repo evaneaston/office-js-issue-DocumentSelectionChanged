@@ -6,3 +6,8 @@ body {
     padding: 0;
     background-color: #eeeeee;
 }
+
+ol {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
